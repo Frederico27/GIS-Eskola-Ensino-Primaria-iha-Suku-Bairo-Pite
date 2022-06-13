@@ -1,0 +1,49 @@
+        .carousel-contain {
+            width: 100%;
+            background-color: rgb(0, 0, 0);
+            color: white;
+        }
+        
+        .letra {
+            border: solid black;
+        }
+        
+        .letra p {
+            margin: 2% 5% 2% 5%;
+        }
+        
+        .bg-dark {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        
+        .bgmapa {
+            width: 100%;
+            background-color: rgb(0, 0, 0);
+            color: white;
+        }
+        /* Style the list */
+        
+        nav.breadcrumb {
+            padding: 10px 16px;
+            list-style: none;
+            background-color: #eee;
+        }
+        /* Display list items side by side */
+        
+        nav.breadcrumb li {
+            display: inline;
+            font-size: 18px;
+        }
+        /* Add a slash symbol (/) before/behind each list item */
+        /* Add a color to all links inside the list */
+        
+        nav.breadcrumb li a {
+            color: #0275d8;
+            text-decoration: none;
+        }
+        /* Add a color on mouse-over */
+        
+        nav.breadcrumb li a:hover {
+            color: #01447e;
+            text-decoration: underline;
+        }
