@@ -202,7 +202,11 @@ if (!isset($_SESSION['user'])) {
                                         [-8.554512216902767, 125.56402774111778],
                                         [-8.554512216902767, 125.56402774111778],
                                         [-8.554916277195758, 125.54126253075957]
-                                    ]).addTo(map).bindPopup('Area Suku Bairo-Pite.');
+                                    ], {
+
+                                        color: 'red'
+
+                                    }).addTo(map).bindPopup('Area Suku Bairo-Pite.');
 
                                     <?php
                                     include "../koneksaun.php";
