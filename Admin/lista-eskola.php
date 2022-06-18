@@ -41,7 +41,7 @@ if (!isset($_SESSION['user'])) {
             <!-- Tabela eskola -->
             <?php
             include "../koneksaun.php";
-            include "modal-hatama.php"
+            include "modal-hatama.php";
             ?>
             <!-- Button HTML (to Trigger Modal) -->
 
@@ -86,7 +86,7 @@ if (!isset($_SESSION['user'])) {
                                     <td><?php echo $dadus['funsionariu_kontratadu']; ?></td>
                                     <td><?php echo $dadus['total_alunos']; ?></td>
                                     <td style="text-align: center;"><?php echo  "<img src='asset/imajen/" . $dadus['imajen'] . "' alt='$dadus[naran_eskola]' width='100px' >"; ?></td>
-                                    <td><a href=#>Edit</a>
+                                    <td><a href="#edita<?php echo $dadus['id_eskola']; ?>" data-toggle="modal">Edit</a>
                                         <a href="apaga_eskola.php?id_esc=<?= $dadus['id_eskola'] ?>" onclick="return confirm_delete()">Delete</a>
                                     </td>
 
@@ -97,7 +97,9 @@ if (!isset($_SESSION['user'])) {
                                         return confirm('Ita boot Hakarak duni atu apaga dadus refere?');
                                     }
                                 </script>
-                            <?php } ?>
+                            <?php
+                                include "modal-edit_eskola.php";
+                            } ?>
                         </tbody>
                     </table>
                 </div>

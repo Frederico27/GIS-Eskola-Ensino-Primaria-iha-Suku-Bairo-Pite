@@ -51,12 +51,12 @@ if (!isset($_SESSION['user'])) {
             </div>
 
             <?php
-            if(isset($_GET['susessu'])){
-                
+            if (isset($_GET['susessu'])) {
+
                 echo "<br><div class='p-3 mb-2 bg-success text-white bg-opacity-100'>Dadus Susessu Aumenta</div>";
             }
             ?>
-            
+
 
             <div class="card-body">
                 <div class="table-responsive">
@@ -85,8 +85,8 @@ if (!isset($_SESSION['user'])) {
                                     <td><?php echo $dadus2['longitude']; ?></td>
                                     <td><?php echo $dadus2['latitude']; ?></td>
                                     <td><?php echo $dadus2['lokalizasaun']; ?></td>
-                                    <td><a href=#>Edit</a><br>
-                                        <a href="apaga_detallu.php?id_det=<?= $dadus2['id_detallu']?>" onclick="return confirm_delete()">Delete</a>
+                                    <td><a href=#editad<?php echo $dadus2['id_detallu'];?> data-toggle="modal">Edit</a><br>
+                                        <a href="apaga_detallu.php?id_det=<?= $dadus2['id_detallu'] ?>" onclick="return confirm_delete()">Delete</a>
                                     </td>
                                 </tr>
 
@@ -96,7 +96,9 @@ if (!isset($_SESSION['user'])) {
                                     }
                                 </script>
 
-                            <?php } ?>
+                            <?php
+                                include "modal-edit_detallu.php";
+                            } ?>
                         </tbody>
                     </table>
                 </div>

@@ -84,7 +84,7 @@ if (!isset($_SESSION['user'])) {
                                         echo substr_replace($naruk, "...", 150); ?></td>
                                     <td><?php echo $dadus2['status']; ?></td>
                                     <td><?php echo $dadus2['naran']; ?></td>
-                                    <td><a href=#>Edit</a> &emsp;
+                                    <td><a href=#editac<?php echo $dadus2['id_artikel']; ?> data-toggle="modal">Edit</a> &emsp;
                                         <a href="apaga_artikel.php?idartc=<?= $dadus2['id_artikel'] ?>" onclick="return confirm_delete()">Delete</a>
                                     </td>
 
@@ -94,11 +94,13 @@ if (!isset($_SESSION['user'])) {
                                         return confirm('Ita boot Hakarak duni atu apaga dadus refere?');
                                     }
                                 </script>
-                            <?php } ?>
+                            <?php
+                                include "modal-edit_artikel.php";
+                            } ?>
                         </tbody>
                     </table>
                 </div>
-
+                
                 <!-- /.container-fluid-->
                 <!-- /.content-wrapper-->
                 <footer class="sticky-footer">

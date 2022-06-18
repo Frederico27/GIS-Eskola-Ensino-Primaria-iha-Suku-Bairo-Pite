@@ -69,7 +69,7 @@
                                 $nomor2 = (int) substr($id_popul, 4, 4);
                                 $nomor2++;
                             ?>
-                                <input type="text" class="form-control" name="id_popula" value="<?php echo 'EBFP' . $nomor2 ; ?>" required readonly>
+                                <input type="text" class="form-control" name="id_popula" value="<?php echo 'EBFP' . $nomor2; ?>" required readonly>
                             <?php endwhile; ?>
 
                         </div>
@@ -99,9 +99,35 @@
                     <div class="form-group">
                         <label for="nama" class="col-sm-12 control-label">Imajen:</label>
                         <div class="col-sm-12">
-                            <input class="form-control" type="file" name="imajen" required>
+                            <div id="wrapper">
+                                <input type="file" name="imajen" accept="image/*" onchange="preview_image(event)">
+                                <label for="naran" class="col-sm-12 control-label">Imajen Foun:</label><br>
+                                <img src="asset/imajen/gambar_default.png" id="output_image" />
+                            </div>
                         </div>
                     </div>
+
+                    <style>
+                        #output_image {
+                            width: 150px;
+                            height: 120px;
+                        }
+                    </style>
+
+                    <script>
+                        function preview_image(event) {
+                            var reader = new FileReader();
+                            reader.onload = function() {
+                                var output = document.getElementById('output_image');
+                                output.src = reader.result;
+                            }
+                            reader.readAsDataURL(event.target.files[0]);
+                        }
+
+                        function imageIsLoaded(e) {
+                            $('.').attr('src', e.target.result);
+                        };
+                    </script>
 
                 </div>
                 <div class="modal-footer">
@@ -270,7 +296,7 @@
                     <div class="form-group">
                         <label for="naran" class="col-sm-12 control-label">Konteudu:</label>
                         <div class="col-sm-12">
-                            <textarea name="konteudu" class="ckeditor" id= ckedtor rows="5"></textarea>
+                            <textarea name="konteudu" class="ckeditor" id=ckedtor rows="5"></textarea>
                         </div>
                     </div>
 
