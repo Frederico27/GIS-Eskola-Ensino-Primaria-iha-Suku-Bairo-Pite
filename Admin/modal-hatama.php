@@ -100,8 +100,7 @@
                         <label for="nama" class="col-sm-12 control-label">Imajen:</label>
                         <div class="col-sm-12">
                             <div id="wrapper">
-                                <input type="file" name="imajen" accept="image/*" onchange="preview_image(event)">
-                                <label for="naran" class="col-sm-12 control-label">Imajen Foun:</label><br>
+                                <input type="file" name="imajen" accept="image/*" onchange="preview_image(event)"><br><br>
                                 <img src="asset/imajen/gambar_default.png" id="output_image" />
                             </div>
                         </div>

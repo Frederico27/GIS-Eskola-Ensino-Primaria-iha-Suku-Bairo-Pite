@@ -76,7 +76,7 @@
                                 while ($row3 = mysqli_fetch_assoc($result3)) {
                                     $opsaun3 = $dadus2['id_artikel'];
                                     if ($row3['id_artikel'] == $opsaun3) {
-                                        echo '<option value="' . $row3['id_artikel'] . '" selected>' . $row3['id_artikel'] . " - (" . substr_replace($row3['titulu'], "...", 15). ")";
+                                        echo '<option value="' . $row3['id_artikel'] . '" selected>' . $row3['id_artikel'] . " - (" . substr_replace($row3['titulu'], "...", 15) . ")";
                                         '</option>';
                                     } else {
                                         echo '<option value="' . $row3['id_artikel'] . '">' . $row3['id_artikel'] . " - (" . substr_replace($row3['titulu'], "...", 15) . ")";
@@ -112,8 +112,9 @@
 
             </div>
             <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" name="submit3">Renova</button>
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Kansela</button>
-                <button type="submit" class="btn btn-primary" name="submit3">Aumenta</button>
+
             </div>
             </form>
         </div>

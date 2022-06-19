@@ -1,5 +1,5 @@
 <?php
-// error_reporting(0);
+error_reporting(0);
 include "../koneksaun.php";
 
 if ($_GET['simu1']) {
@@ -55,9 +55,32 @@ if ($_GET['simu2']) {
     $kont       = $_POST['konteudu'];
     $stat       = $_POST['stat'];
     $usr        = $_POST['user'];
-    $insert3 = $conn->query("UPDATE artikel SET titulu = '$titulu', konteudu = '$kont', status = '$stat' WHERE id_artikel = '$id_artc'");
+    $edit3 = $conn->query("UPDATE artikel SET titulu = '$titulu', konteudu = '$kont', status = '$stat' WHERE id_artikel = '$id_artc'");
     echo '            <script>
     window.alert("Sussesu edita dadus");
     window.location = "artikel.php";
 </script>';
+}
+
+if ($_GET['simu3']) {
+
+    $id_det     = $_GET['simu3'];
+    $esc        = $_POST['esc'];
+    $popul      = $_POST['popul'];
+    $artc       = $_POST['artc'];
+    $lat        = $_POST['lat'];
+    $lng        = $_POST['lng'];
+    $lok        = $_POST['lokal'];
+    $edit4 = $conn->query("UPDATE detallu SET id_eskola = '$esc', id_populasaun = '$popul', id_artikel = '$artc', latitude = '$lat', longitude = '$lng', lokalizasaun = '$lok'  WHERE id_detallu = '$id_det'");
+    if ($edit4) {
+        echo '            <script>
+    window.alert("Sussesu edita dadus");
+    window.location = "hotspot.php";
+</script>';
+    } else {
+        echo '            <script>
+        window.alert("Edita Dadus Falla");
+        window.location = "hotspot.php";
+    </script>';
+    }
 }
