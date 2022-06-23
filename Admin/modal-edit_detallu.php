@@ -20,23 +20,7 @@
                     <div class="form-group">
                         <label for="naran" class="col-sm-12 control-label">ID Eskola :</label>
                         <div class="col-sm-12">
-                            <select class="form-control" name="esc">
-                                <?php
-
-                                $sql = "SELECT * FROM eskola";
-                                $result = mysqli_query($conn, $sql);
-                                while ($row = mysqli_fetch_assoc($result)) {
-                                    $opsaun = $dadus2['id_eskola'];
-                                    if ($row['id_eskola'] == $opsaun) {
-                                        echo '<option value="' . $row['id_eskola'] . '" selected>' . $row['naran_eskola'] . " - (" . $row['id_eskola'] . ")";
-                                        '</option>';
-                                    } else {
-                                        echo '<option value="' . $row['id_eskola'] . '">' . $row['naran_eskola'] . " - (" . $row['id_eskola'] . ")";
-                                        '</option>';
-                                    }
-                                }
-                                ?>
-                            </select>
+                        <input type="text" class="form-control" name="esc" value="<?= $dadus2['id_eskola']; ?>" required readonly>
                         </div>
                     </div>
 
@@ -44,23 +28,7 @@
                     <div class="form-group">
                         <label for="naran" class="col-sm-12 control-label">ID Populasaun:</label>
                         <div class="col-sm-12">
-                            <select class="form-control" name="popul">
-                                <?php
-
-                                $sql2 = "SELECT a.id_populasaun, b.naran_eskola FROM populasaun a, eskola b WHERE a.id_eskola = b.id_eskola";
-                                $result2 = mysqli_query($conn, $sql2);
-                                while ($row2 = mysqli_fetch_assoc($result2)) {
-                                    $opsaun2 = $dadus2['id_populasaun'];
-                                    if ($row2['id_populasaun'] == $opsaun2) {
-                                        echo '<option value="' . $row2['id_populasaun'] . '" selected>' . $row2['naran_eskola'] . " - (" . $row2['id_populasaun'] . ")";
-                                        '</option>';
-                                    } else {
-                                        echo '<option value="' . $row2['id_populasaun'] . '">' . $row2['naran_eskola'] . " - (" . $row2['id_populasaun'] . ")";
-                                        '</option>';
-                                    }
-                                }
-                                ?>
-                            </select>
+                        <input type="text" class="form-control" name="popul" value="<?= $dadus2['id_populasaun']; ?>" required readonly>
                         </div>
                     </div>
 
