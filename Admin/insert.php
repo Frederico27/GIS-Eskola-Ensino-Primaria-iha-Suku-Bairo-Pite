@@ -54,9 +54,12 @@ if (isset($_POST["submit"]) && !empty($_FILES["imajen"]["name"])) {
 
 
 //Dadus foti husi POST
+$pop = "SELECT a.id_populasaun FROM populasaun a, eskola b WHERE a.id_eskola = '$_POST[id_esc2]'";
+$result = $conn->query($pop);
+$row = $result->fetch_assoc();
+$id_popula2 = $row['id_populasaun'];
 $id2          = $_POST['id2'];
 $id_esc2      = $_POST['id_esc2'];
-$id_popula2   = $_POST['id_popula2'];
 $id_artc2     = $_POST['id_artc2'];
 $lat          = $_POST['lat'];
 $lng          = $_POST['lng'];

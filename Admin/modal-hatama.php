@@ -184,26 +184,6 @@
                         </div>
                     </div>
 
-
-                    <div class="form-group">
-                        <label for="naran" class="col-sm-12 control-label">ID Populasaun:</label>
-                        <div class="col-sm-12">
-                            <select class="form-control" name="id_popula2">
-
-                                <?php
-                                include "../koneksaun.php";
-                                $sql3 = "SELECT naran_eskola, id_populasaun FROM populasaun a, eskola b WHERE a.id_eskola = b.id_eskola";
-                                $hasil3 = mysqli_query($conn, $sql3);
-                                while ($data3 = mysqli_fetch_array($hasil3)) :
-                                ?>
-                                    <option value="<?= $data3['id_populasaun']; ?>"><?= $data3['id_populasaun'] . " - (" . $data3['naran_eskola'] . ")"; ?></option>
-                                <?php endwhile; ?>
-
-                            </select>
-                        </div>
-                    </div>
-
-
                     <div class="form-group">
                         <label for="naran" class="col-sm-12 control-label">ID Artikel:</label>
                         <div class="col-sm-12">
