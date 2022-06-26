@@ -83,7 +83,7 @@ include "header.php";
                 <div class="row">
                     <?php
                     include "koneksaun.php";
-                    $sql = "SELECT (a.id_artikel) as id_artc, titulu, konteudu, status, naran, imajen FROM artikel a, user b, eskola c, detallu d WHERE a.id_artikel = d.id_artikel AND a.id_user = b.id_user AND c.id_eskola = d.id_eskola ORDER BY d.id_artikel DESC LIMIT 5";
+                    $sql = "SELECT (a.id_artikel) as id_artc, titulu, konteudu, status, naran, imajen FROM artikel a, user b, eskola c, detallu d WHERE a.id_artikel = d.id_artikel AND a.id_user = b.id_user AND c.id_eskola = d.id_eskola AND a.id_artikel != '$id' ORDER BY d.id_artikel DESC LIMIT 5";
                     $result = mysqli_query($conn, $sql);
                     while ($data2 = mysqli_fetch_array($result)) :
                     ?>

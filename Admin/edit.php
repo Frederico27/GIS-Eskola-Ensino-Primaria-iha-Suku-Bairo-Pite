@@ -13,6 +13,13 @@ if ($_GET['simu1']) {
     $func2      = $_POST['func2'];
     $alunu      = $_POST['alunos'];
 
+    $img = "SELECT imajen FROM eskola WHERE id_eskola = '$id_eskola'";
+    $result = $conn->query($img);
+    $row = $result->fetch_assoc();
+    if (file_exists("asset/imajen/$row[imajen]")) {
+        unlink("asset/imajen/$row[imajen]");
+    }
+
     // File upload path
     $targetDir = "asset/imajen/";
     $fileName = basename($_FILES["imajen"]["name"]);

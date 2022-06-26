@@ -50,7 +50,7 @@
                 }
             </style>
             <?php include "koneksaun.php";
-            $sql = "SELECT (a.id_artikel) as id_artc, titulu, konteudu, status, naran, imajen FROM artikel a, user b, eskola c, detallu d WHERE a.id_artikel = d.id_artikel AND a.id_user = b.id_user AND c.id_eskola = d.id_eskola";
+            $sql = "SELECT (a.id_artikel) as id_artc, titulu, konteudu, naran, imajen FROM artikel a, user b, eskola c, detallu d WHERE a.id_artikel = d.id_artikel AND a.id_user = b.id_user AND c.id_eskola = d.id_eskola AND status = 'Publika'";
             $result = mysqli_query($conn, $sql);
             $total = mysqli_num_rows($result);
             if ($total > 0) {
@@ -65,7 +65,7 @@
                                     <?php
                                     $foti = $data["konteudu"];
                                     $naruk = strip_tags(html_entity_decode($foti, ENT_QUOTES, "ISO-8859-1"));
-                                    echo substr_replace($naruk, "...", 150); ?>
+                                    echo substr_replace($naruk, "...", 100); ?>
                                 </p>
                                 <p><a href="main-artigu.php?id=<?php echo $data['id_artc']; ?>" class="btn btn-success btn-block" role="button">Kontinua le'e</a></p>
                             </div>

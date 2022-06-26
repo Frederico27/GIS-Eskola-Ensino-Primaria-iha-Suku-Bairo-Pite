@@ -22,8 +22,7 @@
     <!-- Page content-->
     <div class="container-fluid carousel-contain py-5">
         <div class="container">
-            <h2 class="text-center mb-5">Bemvindo mai iha Sistema GIS</h2>
-            <div id="carouselBasicExample" class="carousel slide col-lg-8 offset-lg-2" data-bs-ride="carousel">
+            <div id="carouselBasicExample" class="carousel slide col-lg-6 offset-lg-0" data-bs-ride="carousel" style="width: 100%;">
 
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselBasicExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -34,24 +33,24 @@
 
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block w-100" src="imajen/1725723.jpg" alt="First slide">
+                        <img class="d-block w-100" src="imajen/mapa.jpg" alt="First slide">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Informasaun Konaba Mapa</h5>
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                            <p>Ajuda fo sai lokalizasaun husi eskola sira liu husi grafiku mapa.</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="imajen/anime.jpg" alt="Second slide">
+                        <img class="d-block w-100" src="imajen/school.jpg"alt="Second slide">
                         <div class="carousel-caption d-none d-md-block">
-                            <h5>Ajuda fo hotspot</h5>
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                            <h5>Fornese Informasaun sira konaba Eskola</h5>
+                            <p>Ajuda fasilita informasaun konaba eskola ne'ebe relata ba populasaun no kondisaun.</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="imajen/anime.jpg" alt="Third slide">
+                        <img class="d-block w-100" src="imajen/aluno.jpg" alt="Third slide">
                         <div class="carousel-caption d-none d-md-block">
-                            <h5>Loke Dalan</h5>
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                            <h5>Artigu konaba Eskola</h5>
+                            <p>Fornese artigu konaba eskola ne'ebe relata ba istoria no aktividade husi eskola refere.</p>
                         </div>
                     </div>
                 </div>
