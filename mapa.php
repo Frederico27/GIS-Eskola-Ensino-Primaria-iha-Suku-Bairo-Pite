@@ -213,6 +213,40 @@
 
 
             <?php } ?>
+
+            <?php
+            include "koneksaun.php";
+            $query = $conn->query("SELECT * FROM eskola a, populasaun b, artikel c, detallu d WHERE a.id_eskola = d.id_eskola AND b.id_populasaun = d.id_populasaun AND c.id_artikel = d.id_artikel AND a.kondisaun = 'Ladiak'");
+            while ($dadus = $query->fetch_array()) {
+              $lng   = $dadus['longitude'];
+              $lat   = $dadus['latitude'];
+              $naran = $dadus['naran_eskola'];
+              $img   = $dadus['imajen'];
+              $tipu  = $dadus['tipu_eskola'];
+              $kond  = $dadus['kondisaun'];
+              $func1 = $dadus['funsionariu_estadu'];
+              $func2 = $dadus['funsionariu_kontratadu'];
+              $aln   = $dadus['total_alunos'];
+              $id_artc = $dadus['id_artikel'];
+            ?>
+
+              var greenIcon = new L.Icon({
+                iconUrl: 'imajen/grey-marker.png',
+                shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+                iconSize: [25, 41],
+                iconAnchor: [12, 41],
+                popupAnchor: [1, -34],
+                shadowSize: [41, 41]
+              });
+              //leaflet marker
+              var marker = L.marker([<?php echo $lat; ?>, <?php echo $lng; ?>],{
+                icon: greenIcon
+              }).addTo(map).
+              bindPopup("<center><b><?php echo $naran; ?></b><hr><?php echo "<img src='Admin/asset/imajen/" . $img;
+                                                                  ?>'width='130px'><hr></center><pre style= 'font-family: Cambria; text-align: justify;'><?php echo 'Tipu-Eskola: ' . $tipu ?><br><?php echo 'Kondisaun: ' . $kond; ?><br><?php echo 'Total Funsionariu-Estadu: ' . $func1 ?><br><?php echo 'Total Funsionariu-Kontratadu: ' . $func2 ?><br><?php echo 'Total Alunos: ' . $aln ?></pre><center><a style='color: white;' href='main-artigu.php?id=<?= $id_artc ?>' class='btn btn-primary py-1'>Visita</a>");
+
+
+            <?php } ?>
           </script>
 
         </div>
