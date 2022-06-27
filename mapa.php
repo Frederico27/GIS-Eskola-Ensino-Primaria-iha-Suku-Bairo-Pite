@@ -193,7 +193,7 @@
 
             <?php
             include "koneksaun.php";
-            $query = $conn->query("SELECT * FROM eskola a, populasaun b, artikel c, detallu d WHERE a.id_eskola = d.id_eskola AND b.id_populasaun = d.id_populasaun AND c.id_artikel = d.id_artikel");
+            $query = $conn->query("SELECT * FROM eskola a, populasaun b, artikel c, detallu d WHERE a.id_eskola = d.id_eskola AND b.id_populasaun = d.id_populasaun AND c.id_artikel = d.id_artikel AND a.kondisaun = 'Diak'");
             while ($dadus = $query->fetch_array()) {
               $lng   = $dadus['longitude'];
               $lat   = $dadus['latitude'];

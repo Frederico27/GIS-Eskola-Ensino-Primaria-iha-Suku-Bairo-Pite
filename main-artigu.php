@@ -1,6 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php
+include "koneksaun.php";
+function input($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
+function input2($data2)
+{
+    $data2 = trim($data2);
+    $data2 = stripslashes($data2);
+    $data2 = htmlspecialchars($data2);
+    return $data2;
+}
+$id = input($_GET['id']);
+$query = mysqli_query($conn, "SELECT (a.id_artikel) as id_artikel ,titulu, konteudu, naran, imajen FROM artikel a, eskola b, user c, detallu d WHERE a.id_artikel = d.id_artikel AND b.id_eskola = d.id_eskola AND c.id_user = a.id_user AND a.id_artikel = '$id'");
+$data = mysqli_fetch_assoc($query);
+?>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +30,7 @@
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <link href="boostrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
-    <title>koko</title>
+    <title><?= $data['titulu'];?></title>
 </head>
 
 <style>
@@ -24,27 +46,6 @@ include "header.php";
 ?>
 
 <body>
-    <?php
-    include "koneksaun.php";
-    function input($data)
-    {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
-
-    function input2($data2)
-    {
-        $data2 = trim($data2);
-        $data2 = stripslashes($data2);
-        $data2 = htmlspecialchars($data2);
-        return $data2;
-    }
-    $id = input($_GET['id']);
-    $query = mysqli_query($conn, "SELECT (a.id_artikel) as id_artikel ,titulu, konteudu, naran, imajen FROM artikel a, eskola b, user c, detallu d WHERE a.id_artikel = d.id_artikel AND b.id_eskola = d.id_eskola AND c.id_user = a.id_user AND a.id_artikel = '$id'");
-    $data = mysqli_fetch_assoc($query);
-    ?>
     <div class="jumbotron text-center">
         <div class="container">
             <h1 class="display-4"><?= $data['titulu']; ?></h1>
@@ -62,12 +63,13 @@ include "header.php";
                     </nav>
                     <img src="Admin/asset/imajen/<?php echo $data['imajen']; ?>" width="100%" alt="Cinque Terre">
                     <b>
-                        <br><br><p>Editor: <?= $data['naran']; ?></p>
+                        <br><br>
+                        <p>Editor: <?= $data['naran']; ?></p>
                         <hr>
                     </b>
                     <div style="text-align: justify; margin-top: -4%;" class="caption">
                         <?php
-                        echo nl2br("<br>".strip_tags(html_entity_decode($data["konteudu"],ENT_QUOTES,"ISO-8859-1"),"<br><p><b><i><u><em><strong><ul><li><h1><h2><h3><h4><h5><h6><ol><a>"));
+                        echo nl2br("<br>" . strip_tags(html_entity_decode($data["konteudu"], ENT_QUOTES, "ISO-8859-1"), "<br><p><b><i><u><em><strong><ul><li><h1><h2><h3><h4><h5><h6><ol><a>"));
                         ?>
                         <hr>
                     </div>
