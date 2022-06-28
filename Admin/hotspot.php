@@ -79,9 +79,9 @@ if (!isset($_SESSION['user'])) {
                             while ($dadus2 = $query2->fetch_array()) { ?>
                                 <tr>
                                     <td><?php echo $dadus2['id_detallu']; ?></td>
-                                    <td><?php echo $dadus2['id_eskola']; ?></td>
-                                    <td><?php echo $dadus2['id_artikel']; ?></td>
-                                    <td><?php echo $dadus2['id_populasaun']; ?></td>
+                                    <td><?php echo $dadus2['id_eskola']."-(".$dadus2['naran_eskola'].")"; ?></td>
+                                    <td><?php echo $dadus2['id_artikel']."-(".substr_replace($dadus2['titulu'], "...", 15).")"; ?></td>
+                                    <td><?php echo $dadus2['id_populasaun']."-(".$dadus2['naran_eskola'].")"; ?></td>
                                     <td><?php echo $dadus2['longitude']; ?></td>
                                     <td><?php echo $dadus2['latitude']; ?></td>
                                     <td><?php echo $dadus2['lokalizasaun']; ?></td>
