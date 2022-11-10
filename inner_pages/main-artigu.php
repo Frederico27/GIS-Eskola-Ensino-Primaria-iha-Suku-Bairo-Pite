@@ -18,7 +18,7 @@ function input2($data2)
     $data2 = htmlspecialchars($data2);
     return $data2;
 }
-$id = input($_GET['id']);
+$id = addslashes(input($_GET['id']));
 $query = mysqli_query($conn, "SELECT (a.id_artikel) as id_artikel ,titulu, konteudu, naran, imajen FROM artikel a, eskola b, user c, detallu d WHERE a.id_artikel = d.id_artikel AND b.id_eskola = d.id_eskola AND c.id_user = a.id_user AND a.id_artikel = '$id'");
 $data = mysqli_fetch_assoc($query);
 ?>
@@ -30,7 +30,7 @@ $data = mysqli_fetch_assoc($query);
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <link href="boostrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
-    <title><?= $data['titulu'];?></title>
+    <title><?= $data['titulu']; ?></title>
 </head>
 
 <style>
@@ -41,13 +41,9 @@ $data = mysqli_fetch_assoc($query);
         border-radius: .3rem;
     }
 </style>
-<?php
-include "header.php";
-?>
-
 <body>
     <div class="jumbotron text-center">
-        <div class="container">
+        <div class="container"><br>
             <h1 class="display-4"><?= $data['titulu']; ?></h1>
         </div>
     </div>
@@ -73,9 +69,69 @@ include "header.php";
                         ?>
                         <hr>
                     </div>
+
+                    <?php
+                    if (isset($_GET['komentariu'])) {
+                        //Mengecek nilai variabel add yang telah di enskripsi dengan method md5()
+                        if ($_GET['komentariu'] == 'susessu') {
+                            echo "<div class='alert alert-success'>Komentariu susessu manda, hein admin nia konfirmasaun</div>";
+                        } else {
+                            echo "<div class='alert alert-danger'>Komentariu Falla</div>";
+                        }
+                    }
+                    ?>
                 </div>
+
+                <div class="row">
+                <?php
+                    include 'koneksaun.php';
+                    $query = $conn->query("SELECT naran, koment FROM komentariu WHERE id_artigu ='$id' AND estatuto = 'Publika'");
+                    while ($komentar = $query->fetch_array()) {
+                ?>
+                <div class="col-sm-12">
+                    <div class="caption">
+                        <h5><?php echo $komentar['naran'];?></h5>
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <img src="imajen/user.png" width="100%" alt="Cinque Terre">
+                            </div>
+                            <div class="col-sm-11">
+                                <?php echo $komentar['koment']; ?>
+                            </div> 
+                        </div>
+                        <br><br>
+                    </div>
+                </div>
+                <?php }?>
             </div>
 
+                <div class="comment">
+                    <form method="post" action="komen.html">
+                        <label>
+                            <h2>Rai hela komentariu</h2>
+                        </label>
+                        <div class="form-group">
+                            <input type="hidden" name="id_artigu" value="<?php echo $data['id_artikel']; ?>" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Naran:</label>
+                            <input type="text" name="naran" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Email:</label>
+                            <input type="email" name="email" class="form-control">
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label>Komentariu:</label>
+                            <textarea class="form-control" name="komentar" rows="5"></textarea>
+                        </div>
+                        <div class="form-group mb-3">
+                        <button type="submit" class="btn btn-primary" name="submit">Manda Mensajen</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
 
             <!-- SIDE-BAR NOTISIA NIAN -->
 
@@ -92,7 +148,7 @@ include "header.php";
                         <div class="col-sm-12">
                             <div class="caption">
                                 <br>
-                                <h5><a class="text-dark" href="main-artigu.php?id=<?php echo $data2['id_artc']; ?>"><?php echo $data2['titulu']; ?></a></h5>
+                                <h5><a class="text-dark" href="main-artigu-<?php echo $data2['id_artc']; ?>.html"><?php echo $data2['titulu']; ?></a></h5>
                                 <div class="row">
                                     <div class="col-xl-3">
                                         <img src="Admin/asset/imajen/<?php echo $data2['imajen']; ?>" width="100%" alt="Cinque Terre">
@@ -110,8 +166,11 @@ include "header.php";
                             </div>
                         </div>
                     <?php endwhile; ?>
+
                 </div>
             </div>
+
+
         </div>
     </div>
 

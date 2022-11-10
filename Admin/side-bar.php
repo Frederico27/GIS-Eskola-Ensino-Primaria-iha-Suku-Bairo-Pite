@@ -29,6 +29,13 @@
             </li>
 
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+                <a class="nav-link" href="komentariu.php">
+                    <i class="fa fa-fw fa-newspaper-o"></i>
+                    <span class="nav-link-text">Komentariu</span>
+                </a>
+            </li>
+
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
                 <a class="nav-link" href="hotspot.php">
                     <i class="fa fa-fw fa-info-circle"></i>
                     <span class="nav-link-text">Detallu Hotspot Point</span>
@@ -51,7 +58,7 @@
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="../logout.php">
+                <a class="nav-link" href="../inner_pages/logout.php">
                     <i class="fa fa-fw fa-sign-out"></i>Logout</a>
             </li>
         </ul>

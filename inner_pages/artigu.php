@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <link href="boostrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
@@ -23,13 +17,9 @@
 </style>
 
 <body>
-    
-    <?php
-    include 'header.php';
-    ?>
     <div class="jumbotron text-center">
         <div class="container">
-            <h1 class="display-4">Portal Informasaun</h1>
+            <h1 class="display-4"><br>Portal Informasaun</h1>
             <p class="lead">Artigu ba Informasaun sira konaba Eskola</p>
         </div>
     </div>
@@ -67,7 +57,7 @@
                                     $naruk = strip_tags(html_entity_decode($foti, ENT_QUOTES, "ISO-8859-1"));
                                     echo substr_replace($naruk, "...", 100); ?>
                                 </p>
-                                <p><a href="main-artigu.php?id=<?php echo $data['id_artc']; ?>" class="btn btn-success btn-block" role="button">Kontinua le'e</a></p>
+                                <p><a href="main-artigu-<?php echo $data['id_artc']; ?>.html" class="btn btn-success btn-block" role="button">Kontinua le'e</a></p>
                             </div>
                         </div>
                     </div>

@@ -15,17 +15,14 @@
 </head>
 
 <body>
-    <?php
-    include 'header.php';
-    ?>
     <section class="vh-80 bg-login h-100" style="background-color: white;">
-        <div class="container py-5">
+        <div class="container py-5 mt-3">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-12 col-md-8 col-lg-6 col-xl-5">
                     <div class="card text-white" style=" background-color:#134643; border-radius: 1rem;">
                         <div class="card-body p-5 text-center">
 
-                            <form action="asaun-login.php" method="post">
+                            <form action="asaun-login.html" method="post">
                                 <div class="mb-md-0 mt-md-0 pb-5">
                                     <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
                                     <p class="text-white-50 mb-5">Halo Favor Prenxe Username ho Password!</p>
@@ -53,9 +50,6 @@
             </div>
         </div>
     </section>
-    <?php
-    include 'footer.php';
-    ?>
 </body>
 
 </html>

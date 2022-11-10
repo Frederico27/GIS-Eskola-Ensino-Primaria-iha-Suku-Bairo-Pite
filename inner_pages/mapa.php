@@ -136,10 +136,6 @@
 </style>
 
 <body>
-
-  <?php
-  include 'header.php';
-  ?>
   <div class="container">
     <div class="card my-5">
       <div class="card-header">
@@ -209,7 +205,7 @@
               //leaflet marker
               var marker = L.marker([<?php echo $lat; ?>, <?php echo $lng; ?>]).addTo(map).
               bindPopup("<center><b><?php echo $naran; ?></b><hr><?php echo "<img src='Admin/asset/imajen/" . $img;
-                                                                  ?>'width='130px'><hr></center><pre style= 'font-family: Cambria; text-align: justify;'><?php echo 'Tipu-Eskola: ' . $tipu ?><br><?php echo 'Kondisaun: ' . $kond; ?><br><?php echo 'Total Funsionariu-Estadu: ' . $func1 ?><br><?php echo 'Total Funsionariu-Kontratadu: ' . $func2 ?><br><?php echo 'Total Alunos: ' . $aln ?></pre><center><a style='color: white;' href='main-artigu.php?id=<?= $id_artc ?>' class='btn btn-primary py-1'>Visita</a>");
+                                                                  ?>'width='130px'><hr></center><pre style= 'font-family: Cambria; text-align: justify;'><?php echo 'Tipu-Eskola: ' . $tipu ?><br><?php echo 'Kondisaun: ' . $kond; ?><br><?php echo 'Total Funsionariu-Estadu: ' . $func1 ?><br><?php echo 'Total Funsionariu-Kontratadu: ' . $func2 ?><br><?php echo 'Total Alunos: ' . $aln ?></pre><center><a style='color: white;' href='main-artigu-<?= $id_artc ?>.html' class='btn btn-primary py-1'>Visita</a>");
 
 
             <?php } ?>
@@ -243,7 +239,7 @@
                 icon: greenIcon
               }).addTo(map).
               bindPopup("<center><b><?php echo $naran; ?></b><hr><?php echo "<img src='Admin/asset/imajen/" . $img;
-                                                                  ?>'width='130px'><hr></center><pre style= 'font-family: Cambria; text-align: justify;'><?php echo 'Tipu-Eskola: ' . $tipu ?><br><?php echo 'Kondisaun: ' . $kond; ?><br><?php echo 'Total Funsionariu-Estadu: ' . $func1 ?><br><?php echo 'Total Funsionariu-Kontratadu: ' . $func2 ?><br><?php echo 'Total Alunos: ' . $aln ?></pre><center><a style='color: white;' href='main-artigu.php?id=<?= $id_artc ?>' class='btn btn-primary py-1'>Visita</a>");
+                                                                  ?>'width='130px'><hr></center><pre style= 'font-family: Cambria; text-align: justify;'><?php echo 'Tipu-Eskola: ' . $tipu ?><br><?php echo 'Kondisaun: ' . $kond; ?><br><?php echo 'Total Funsionariu-Estadu: ' . $func1 ?><br><?php echo 'Total Funsionariu-Kontratadu: ' . $func2 ?><br><?php echo 'Total Alunos: ' . $aln ?></pre><center><a style='color: white;' href='main-artigu-<?= $id_artc ?>.html' class='btn btn-primary py-1'>Visita</a>");
 
 
             <?php } ?>
@@ -415,10 +411,6 @@
   }
     ?>
     </div>
-
-    <?php
-    include 'footer.php'
-    ?>
 </body>
 
 </html>

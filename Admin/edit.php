@@ -91,3 +91,22 @@ if ($_GET['simu3']) {
     </script>';
     }
 }
+
+if ($_GET['simu4']) {
+
+
+    $stat = $_POST['stat'];
+    $id_komen = $_GET['simu4'];
+    $edit5 = $conn->query("UPDATE komentariu SET estatuto = '$stat' WHERE id_komen = '$id_komen'");
+    if ($edit5) {
+        echo '            <script>
+    window.alert("Sussesu edita dadus");
+    window.location = "komentariu.php";
+</script>';
+    } else {
+        echo '            <script>
+        window.alert("Edita Dadus Falla");
+        window.location = "komentariu.php";
+    </script>';
+    }
+}
