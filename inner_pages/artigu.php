@@ -1,9 +1,7 @@
-
+<head>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <link href="boostrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
-
-    <title>Informasaun</title>
 
 </head>
 
