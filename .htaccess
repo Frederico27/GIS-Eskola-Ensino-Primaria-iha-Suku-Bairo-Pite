@@ -1,3 +1,4 @@
+<IfModule mod_rewrite.c>
 RewriteEngine on
 RewriteRule ^home.html$ base.php?module=home [L]
 RewriteRule ^mapa.html$ inner_page.php?module=mapa [L]
@@ -7,5 +8,4 @@ RewriteRule ^asaun-login.html$ inner_page.php?module=asaun [L]
 RewriteRule ^main-artigu-(.*)\.html$ inner_page.php?module=main-artigu&id=$1 [L]
 RewriteRule ^main-artigu-(.*)\-(.*)\.html$ inner_page.php?module=main-artigu&id=$1&komentariu=$2 [L]
 RewriteRule ^komen.html$ inner_page.php?module=komen [L]
-
-Options All -Indexes
+</IfModule>
